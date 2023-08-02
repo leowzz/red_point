@@ -8,7 +8,7 @@ import cv2
 def get_rectangle(img: np.ndarray):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imwrite('data/out/01.jpg', img)
-    ret, img = cv2.threshold(img, 100, 220, cv2.THRESH_BINARY)
+    ret, img = cv2.threshold(img, 50, 220, cv2.THRESH_BINARY)
     cv2.imwrite('data/out/02.jpg', img)
     contours, hier = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for c in contours:  #遍历轮廓
@@ -38,5 +38,5 @@ def get_rectangle(img: np.ndarray):
     
 if __name__ == "__main__":
     # save_one_pic()
-    img = load_pic('data/01.jpg')
+    img = load_pic('data/with.jpg')
     get_rectangle(img)
