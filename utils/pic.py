@@ -65,6 +65,11 @@ def read_pic() -> np.ndarray:
         return frame
     return False
 
+def get_pic():
+    ret, frame = cap.read()
+    if ret:
+        return frame
+    return ret
 
 if __name__ == "__main__":
     print(type(read_pic()))
